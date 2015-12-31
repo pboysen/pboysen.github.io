@@ -11,6 +11,7 @@ A brief description of the widgets are shown below:
 
 * **Image** was moved from the inline submenu to implement editing via clicking. Enter **img.png** for a test image.
 * **Textfield, Textarea, Checkbox and Select** are used by faculty to prompt for questions in the process of solving a problem.
+* **CarryForward** lets an instructor display a student answer from a previous phase(webpage)
 * **InlineMath and BlockMath** uses MathJax to display equations. We need these for scientific and engineering problems.
 * **Spreadsheet** displays an Excel-like experience for business and engineeroring.  Handsontable is used for integration. It also demonstrates how many well-formed javascript toolkits can be used to provide new capabilities.
 * **IFrame** lets you embed websites, youTube, GoogleMaps... The sites may not display here because of github.io iframe restrictions.
