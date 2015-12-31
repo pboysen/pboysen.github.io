@@ -1,0 +1,62 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>ProseMirror Widgets Examples</title>
+<link rel=stylesheet href="demo.css">
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src="//handsontable.com/dist/handsontable.full.js"></script>
+<link rel="stylesheet" media="screen" href="//handsontable.com/dist/handsontable.full.css">
+
+<h4>ProseMirror Widget Examples</h4>
+
+<p><code>Caution: These are prototypes which have bugs and need UX and CSS work. Deal with it. <img src="img.png"/></code></p>
+
+<div id="editor"></div>
+
+<p>In <a href="http://www.thinkspace.org">ThinkSpace</a>, 
+faculty  use CKEditor to build content in multiple pages called phases which are 
+linked together forming a complex problem for students to solve. 
+CKEditor is great but has typical HTML editor problems and takes work to add new widgets to insert.  <strong>Enter ProseMirror</strong>.
+</p>
+<p>
+The above ProseMirror editor displays a number of widgets which can be inserted into HTML.  
+Insert the desired widget and supply the attributes requested. Tab between fields and press Enter to insert the element.
+<em>If you don't supply an attribute nothing will be created.</em>
+For most widgets, click on the widget to change the attributes.
+</p>
+
+<p>A brief description of the widgets are shown below:</p>
+<ul>
+	<li><strong>Textfield, Textarea, Checkbox and Select</strong> are used by faculty to prompt for questions in the process of solving a problem.</li>
+	<li><strong>InlineMath and BlockMath</strong> use MathJax to display equations. We need these for scientific and engineering problems.
+	Swipe the equations below to test:<br/>
+	inline: <strong>f(x)=(x+a)(x+b)</strong><br/>
+	block:  <strong><span class="nb"> </span><span class="nv">\lim</span><span class="nb">_{x</span><span class="nv">\to</span><span class="nb"> </span><span class="m">0</span><span class="nb">}{</span><span class="nv">\frac</span><span class="nb">{e^x</span><span class="o">-</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">x}}</span>
+<span class="nb"> </span><span class="nv">\overset</span><span class="nb">{</span><span class="nv">\left</span><span class="o">[</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">0</span><span class="nb">}{</span><span class="m">0</span><span class="nb">}</span><span class="nv">\right</span><span class="o">]</span><span class="nb">}{</span><span class="nv">\underset</span><span class="nb">{</span><span class="nv">\mathrm</span><span class="nb">{H}}{</span><span class="o">=</span><span class="nb">}}</span>
+<span class="nb"> </span><span class="nv">\lim</span><span class="nb">_{x</span><span class="nv">\to</span><span class="nb"> </span><span class="m">0</span><span class="nb">}{</span><span class="nv">\frac</span><span class="nb">{e^x}{</span><span class="m">2</span><span class="nb">}}</span><span class="o">=</span><span class="nb">{</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">}}</span>
+</strong>
+</li>
+	<li><strong>Spreadsheet</strong> displays an Excel-like experience for business and engineeroring.  Handsontable is used for integration.  
+	Spreadsheet also demonstrates how many well-formed javascript toolkits can be used to provide new capabilities.
+	</li> 
+	<li><strong>IFrame</strong> lets you embed websites, youTube, GoogleMaps...</li>
+	<li><strong>MultipleChoice, CheckList and Scale</strong> form the basis for a Test/Survey/Quiz/Exam document schema.  
+	Creating MultipleChoice and CheckList were cumbersome in CKEditor because each individual checkbox and radiobutton 
+	had to be inserted. It it now as easy as a bulletlist.  It is also easier to enter than GoogleForms and allows
+	the insertion of media in answers which faculty need.
+	</li>
+</ul>
+
+<p>Finally, ThinkSpace supports <strong>team-based learning</strong>.  The ProseMirror <strong>collaboration</strong> capabilities are 
+ideal for student teams to interact on documents.</p>
+
+<p>This is exciting!</p>
+<p><a href="https://github.com/pboysen/prosemirror-widgets.git">Source</a></p>
+<p><a href="mailto: pboysen@iastate.edu">Pete Boysen</a></p>
+
+<div id="content" style="visibility:hidden">
+<p>Here is some beginning text to work with. Have fun!</p>
+</div>
+
+
+<script src="widgets-built.js"></script>
