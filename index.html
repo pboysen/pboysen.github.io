@@ -14,15 +14,15 @@ body {
 <h4>ProseMirror Widget Examples</h4>
 <p>This editor demonstrates customizations which can be added to the ProseMirror editor including <br/>
 widgets, pulldown menus and modal parameter handling and validation. <br/>
-Use <img src="icons/insert.png" title="Insert Widget"/> to insert a widget and supply its params. Hover and click on the edit icon to modify.<br/>
+Insert a widget and adjust its settings. Hover and click on the edit icon to modify (in most cases).<br/>
 </p>
 
 <div id="editor"></div>
 
-<p>A brief description of the widgets are shown below:</p>
+<h5>Content Widgets</h5>
+The following widgets can be inserted within text or as a separate block of text.
 <ul>
 	<li><strong>Image:</strong> Enter <strong>img.png</strong> for a test image.
-	<li><strong>Textfield, Textarea, Checkbox and Select</strong> provide form elements</li>
 	<li><strong>CarryForward</strong> displays previous student answers</li>
 	<li><strong>InlineMath and BlockMath</strong> use MathJax.
 	Swipe the equations below to test:<br/>
@@ -33,11 +33,15 @@ Use <img src="icons/insert.png" title="Insert Widget"/> to insert a widget and s
 </strong>
 </li>
 	<li><strong>Spreadsheet</strong> uses Handsontable for integration.</li> 
-	<li><strong>IFrame</strong> embeds websites, youTube, GoogleMaps... The site won't display because of iframe restrictions.</li>
-	<li><strong>MultipleChoice, CheckList and Scale</strong> form the basis for a Survey document schema. 
-	<p><em>Click below the title and start editing. Press Enter to provide answers.</em></p>
-	</li>
+	<li><strong>Website</strong> embeds websites, youTube, GoogleMaps... The site won't display because of iframe restrictions.</li>
 </ul>
+<h5>Answer Widgets</h5>
+<p>A Survey consists of survey questions. Each question includes regular text (possibly including content widgets) followed by one of the following answer widgets:
+<ul>
+	<li><strong>Short Answer, Essay, Checkbox and Select Dropdown</strong></li>
+	<li><strong>Choice List (multiple choice), Check List and Scale</strong></li>. 
+</ul>
+
 <p><a href="https://github.com/pboysen/prosemirror-widgets.git">Source</a></p>
 <p><a href="mailto: pboysen@iastate.edu">Pete Boysen</a></p>
 
