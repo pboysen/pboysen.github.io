@@ -1,0 +1,12 @@
+{
+	"type": "map",
+	"dataProvider": {
+		"map": "worldLow",
+		"getAreasFromMap": true
+	},
+	"areasSettings": {
+		"autoZoom": true,
+		"selectedColor": "#CC0000"
+	},
+	"smallMap": {}
+}
