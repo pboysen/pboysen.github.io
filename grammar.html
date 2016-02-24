@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>ProseMirror Widgets Examples</title>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src="//handsontable.com/dist/handsontable.full.js"></script>
+<link rel="stylesheet" media="screen" href="//handsontable.com/dist/handsontable.full.css">
+<style>
+body {
+  font-family: Arial;
+  margin: 0 1em
+}
+</style>
+<h4>ProseMirror Grammar Example</h4>
+<p style="width: 800px">
+Can you can identify possible common errors in the following text?
+<strong>Select Content > Analyze grammar</strong> to see where errors <em>could be.</em>
+Click on a comment to identify the text locations. It is up to you to decide whether the usage is correct. 
+</p>
+
+<p>You may also paste in your own text and find out what a really <strong>bad</strong> writer you are!
+
+<div class="grammar">
+<div id="editor"></div>
+<div id="comments">
+	<span style="font-weight:bold; font-size: 90%;">Comments</span>
+</div>
+</div>
+
+<div id="content" style="visibility:hidden">
+<p>
+Perhaps, as has been suggested, patients get better irregardless of antibiotics, and not because of them. 
+It was a questionable call in the 81st minute that for all intensive purposes decided the outcome.
+Is it in danger of putting form ahead of function? Same difference, says Jobs.
+</p>
+<p><strong>The Media is Lying- Hillary Didn't Win Nevada</strong> says this pundit.
+
+<p>Data is a collection of facts, such as numbers, words, measurements, observations or even just descriptions of things.
+I drove to Pike's Pique to take a peak at the peek.
+I am racked with pane after a wrack fell on me.
+I think we should make a 360-degree turn.
+The first chapter of "War and Peace" is the penultimate chapter of the book.
+</p>
+</div>
+
+<script src="grammar-built.js"></script>
