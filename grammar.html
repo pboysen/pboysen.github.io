@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8"/>
-<title>ProseMirror Grammar Examples</title>
+<title>ProseMirror Widgets Examples</title>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src="//handsontable.com/dist/handsontable.full.js"></script>
 <link rel="stylesheet" media="screen" href="//handsontable.com/dist/handsontable.full.css">
@@ -12,19 +12,17 @@ body {
 </style>
 <h4>ProseMirror Grammar Example</h4>
 <p style="width: 800px">
-Can you can identify possible common errors in the following text?
-<strong>Select Content > Analyze grammar</strong> to see where errors <em>could be.</em>
-Click on a comment to identify the text locations. It is up to you to decide whether the usage is correct. 
+There are hundreds of common writing issues people encounter when writing. Don't be one of them!
+Click on <img src="icons/copywriting.png" title="Analyze Grammar"/> in the menubar to find out. You will be shown places
+where an issue <strong>might</strong> arise.  When the issues appear, click on an issue to see if your text requires editing.
 </p>
 
-<p style="width: 800px">You may also paste in your own text and find out what a really <strong>bad</strong> writer you are! 
-This is the normal way students would use this phase.
-</p>
+<p>You may also paste in your own text and find out what a really <strong>bad</strong> writer you are!
 
 <div class="grammar">
 <div id="editor"></div>
-<div id="comments">
-	<span style="font-weight:bold; font-size: 90%;">Comments</span>
+<div id="comments" style="visibility: hidden">
+	<span style="font-weight:bold; font-size: 90%;">Common Writing Issues</span>
 </div>
 </div>
 
@@ -44,4 +42,4 @@ The first chapter of "War and Peace" is the penultimate chapter of the book.
 </p>
 </div>
 
-<script src="grammar-built-min.js"></script>
+<script src="grammar-built.js"></script>
