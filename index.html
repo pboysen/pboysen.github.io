@@ -4,6 +4,16 @@
 <title>ProseMirror Widgets Examples</title>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src="//handsontable.com/dist/handsontable.full.js"></script>
+<script src="amcharts/amcharts.js"></script>
+<script src="amcharts/serial.js"></script>
+<script src="amcharts/gantt.js"></script> 
+<script src="amcharts/pie.js"></script>
+<script src="amcharts/funnel.js"></script>
+<script src="amcharts/gauge.js"></script> 
+<script src="amcharts/radar.js"></script>
+<script src="amcharts/xy.js"></script>
+<script src="ammap/ammap_amcharts_extension.js"></script>
+<script src="amcharts/plugins/dataloader/dataloader.js"></script>
 <link rel="stylesheet" media="screen" href="//handsontable.com/dist/handsontable.full.css">
 <style>
 body {
@@ -12,15 +22,17 @@ body {
 }
 </style>
 <h4>ProseMirror Widget Examples</h4>
-<p>This editor demonstrates customizations which can be added to the ProseMirror editor involving<br/>
-widgets, pulldown menus, parameter handling and validation. <br/>
-Insert a widget and adjust its settings. Hover and click on the settings icon to modify.<br/>
+<p>This editor demonstrates customizations which can be added to the ProseMirror editor including <br/>
+widgets, pulldown menus and modal parameter handling and validation. <br/>
+Insert a widget and adjust its settings. Hover and click on the edit icon to modify (in most cases).<br/>
+Here is an example http://www.iastate.edu 
 </p>
 
 <div id="editor"></div>
 
+
 <h5>Content Widgets</h5>
-The following widgets can be inserted within text or as a separate block of text.
+<p>The following widgets can be inserted within text or as a separate block of text.</p>
 <ul>
 	<li><strong>Image:</strong> Enter <strong>img.png</strong> for a test image.
 	<li><strong>CarryForward</strong> displays previous student answers</li>
@@ -33,21 +45,21 @@ The following widgets can be inserted within text or as a separate block of text
 </strong>
 </li>
 	<li><strong>Spreadsheet</strong> uses Handsontable for integration.</li> 
-	<li><strong>Website</strong> embeds websites, youTube, GoogleMaps etc. using an IFrame.</li>
-	<li><strong>Graph/Map</strong> displays graphs and maps using amCharts.  Sample json graphs and maps are supplied.</li>
+	<li><strong>Website</strong> embeds websites, youTube, GoogleMaps...</li>
 </ul>
-<h5>Question Widgets</h5>
-<p>Create a survey by insert one or more question widgets below:
+<h5>Answer Widgets</h5>
+<p>A Survey consists of survey questions. Each question includes regular text (possibly including content widgets) followed by one of the following answer widgets:
 <ul>
-	<li><strong>Short Answer, Essay, Scale and Selection</strong></li>
-	<li><strong>MultipleChoice, CheckList. Entering answers works like a bulleted list.</strong></li>. 
+	<li><strong>Short Answer, Essay, Checkbox and Select Dropdown</strong></li>
+	<li><strong>Choice List (multiple choice), Check List and Scale</strong></li>. 
 </ul>
 
 <p><a href="https://github.com/pboysen/prosemirror-widgets.git">Source</a></p>
 <p><a href="mailto: pboysen@iastate.edu">Pete Boysen</a></p>
 
 <div id="content" style="visibility:hidden">
-<p>Some beginning text...</p>
 </div>
 
-<script src="widgets-built-min.js"></script>
+<div>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+<div>Icons made by <a href="http://www.flaticon.com/authors/budi-tanrim" title="Budi Tanrim">Budi Tanrim</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+<script src="widgets-built.js"></script>
