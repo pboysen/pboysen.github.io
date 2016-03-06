@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8"/>
-<title>ProseMirror Grammar Examples</title>
+<title>ProseMirror Peer Review Examples</title>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src="//handsontable.com/dist/handsontable.full.js"></script>
 <script src="amcharts/amcharts.js"></script>
@@ -20,20 +20,15 @@ body {
   margin: 0 1em
 }
 </style>
-<h4>ProseMirror Grammar Example</h4>
+<h4>ProseMirror Peer Review Example</h4>
 <p style="width: 800px">
-There are hundreds of common writing issues people encounter when writing. Don't be one of them!
-Click on <img src="icons/copywriting.png" title="Analyze Grammar"/> in the menubar to find out. You will be shown places
-where an issue <strong>might</strong> arise.  When the issues appear, click on an issue to see if your text requires editing.
+In a peer review you can comment but not change the text.
+Swipe a section of the text and add a comment.
 </p>
 
-<p>You may also paste in your own text and find out what a really <strong>bad</strong> writer you are!
-
-<div class="grammar">
+<div class="comments">
 <div id="editor"></div>
-<div id="comments" style="visibility: hidden">
-	<span style="font-weight:bold; font-size: 90%;">Common Writing Issues</span>
-</div>
+<div id="comments"></div>
 </div>
 
 <div id="content" style="visibility:hidden">
@@ -52,4 +47,4 @@ The first chapter of "War and Peace" is the penultimate chapter of the book.
 </p>
 </div>
 
-<script src="grammar-built-min.js"></script>
+<script src="comments-built.js"></script>
