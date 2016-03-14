@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8"/>
-<title>ProseMirror Peer Review Examples</title>
+<title>ProseMirror Comments Examples</title>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src="//handsontable.com/dist/handsontable.full.js"></script>
 <script src="amcharts/amcharts.js"></script>
@@ -20,17 +20,27 @@ body {
   margin: 0 1em
 }
 </style>
-<h4>ProseMirror Peer Review Example</h4>
+<h4>ProseMirror Comments Example</h4>
 <p style="width: 800px">
-In a peer review you can comment but not change the text.
-Click or swipe some text and enter your comment.
+Two styles of editor are shown here:
+<ul>
+<li>A <strong>Peer Review</strong> editor which allows commenting but not editing.  Swipe the text and click on the comment icon to add a comment.</li>
+<li>An <strong>Editor with Suggestions</strong> which allows peers to make suggestions for inserting, deleting, replacing or commenting.
+<br/>The author may then approve or reject the suggestions.</li>
+</ul>
 </p>
 
 <div class="comments">
+<div style="position: relative; margin: 4px">
+  <div class=commentstyle>
+    Comment style: <select id=commentstyle>
+      <option selected="selected" value=peer>Peer Review</option>
+      <option value=editsuggest>Editing with Suggestions</option>
+    </select></div>
+</div>
 <div id="editor"></div>
 <div id="comments"></div>
 </div>
-
 <div id="content" style="visibility:hidden">
 <p>
 Perhaps, as has been suggested, patients get better irregardless of antibiotics, and not because of them. 
@@ -47,4 +57,4 @@ The first chapter of "War and Peace" is the penultimate chapter of the book.
 </p>
 </div>
 
-<script src="comments-built-min.js"></script>
+<script src="comments-built.js"></script>
