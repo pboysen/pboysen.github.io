@@ -1,0 +1,64 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>Mountain Simulation</title>
+<link rel=stylesheet href="mtnsim.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+<div class="mtnsim">
+	<div class="columns">
+		<div class="col">
+			<canvas id="atgraph" width="200" height="200"></canvas>
+		</div>
+		<div class="col">
+			<canvas id="maincanvas" width="300" height="200"></canvas>
+		</div>
+		<div class="col">
+			<canvas id="etgraph" width="200" height="200"></canvas>
+		</div>
+	</div>
+	<div id="control_panel"
+		<div class="button_panel">
+			<input type="button" id="run" value="Run" title="Run"/>
+			<input type="button" id="pause" value="Pause" title="Pause trial"/>
+			<input type="button" id="restart" value="Restart" title="Restart for another run"/>
+			<input type="checkbox" id ="mute" value="Mute"</>Mute
+		</div>
+		<div class="slider_panel">
+			<div class="slider_control">
+				<label for="temp">Temperature</label>
+				<div class="slider">
+				   <input type="range" id="temp" min="-20.0" max="30.0" step="0.1" value="20.0"/>
+				   <input type="text" id="tempout" value="20.0" readonly/>
+				</div>
+			</div>
+			<div class="slider_control">
+				<label for="vapor">Vapor Pressure</label>
+				<div class="slider">
+				   <input type="range" id="vapor" min="0.0" max="50.0" step="0.1" value="20.0"/>
+				   <input type="text" id="vaporout" value="20.0" readonly/>
+				</div>
+			</div> 
+		</div>
+	</div>
+	<div id="results">
+		<table id="results_table">
+			<caption>Experimental Results</caption>
+			<tr>
+				<th colspan="3">Initial</th>
+				<th colspan="4">Final</th>
+			</tr>
+			<tr>
+		        <th>Temp(C)</th>
+		        <th>Vapor Pressure(mb)</th>
+		        <th>Td(C)</th>
+		        <th>Temp(C)</th>
+		        <th>Td(C)</th>
+		        <th>Vapor Pressure(mb)</th>
+		        <th>Cloud Base(km)</th>
+		    </tr>
+		</table>
+	</div>
+</div>
+
+<script src="mtnsim-built-min.js"></script>
