@@ -1,0 +1,82 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>Radiation Simulation</title>
+<link rel=stylesheet href="radsim.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+<div class="radsim">
+	<div class="columns">
+		<div class="display">
+			<canvas id="maincanvas" width="300" height="200"></canvas>
+		</div>
+		<div class="display">
+			<canvas id="atgraph" width="200" height="200"></canvas>
+		</div>
+	</div>
+	<div id="control_panel">
+		<div class="button_panel">
+			<input type="button" id="run" value="Release" title="Release balloon"/>
+			<input type="button" id="pause" value="Pause" title="Pause trial"/>
+			<input type="button" id="restart" value="Restart" title="Restart for another run"/>
+			<input type="button" id="clear" value="Clear" title="Clear graph"/>
+		</div>
+		<div class="choice_panel">
+			<table class="legend">
+				<caption>Legend</caption>
+				<tr>
+					<th>Surface</th>
+					<th>Day</td>
+					<th>Night</td>
+				</tr>
+				<tr>
+					<td>Sand</td>
+					<td><input type="radio" value="sand-day" name="choice" checked="checked"/></td>
+					<td><input type="radio" value="sand-night" name="choice"/></td>
+				</tr>
+				<tr>
+					<td>Plowed Field</td>
+					<td><input type="radio" value="plowed-day" name="choice"/></td>
+					<td><input type="radio" value="plowed-night" name="choice"/></td>
+				</tr>
+				<tr>
+					<td>Grass</td>
+					<td><input type="radio" value="grass-day" name="choice"/></td>
+					<td><input type="radio" value="grass-night" name="choice"/></td>
+				</tr>
+				<tr>
+					<td>Fresh Snow</td>
+					<td><input type="radio" value="snow-day" name="choice"/></td>
+					<td><input type="radio" value="snow-night" name="choice"/></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="results">
+		<table id="results_table">
+			<caption>Experimental Results</caption>
+			<tr>
+		        <th>Surface</th>
+		        <th>Time</th>
+		        <th>T(F)</th>
+		        <th>A(km)</th>
+		        <th>T(F)</th>
+		        <th>A(km)</th>
+		        <th>T(F)</th>
+		        <th>A(km)</th>
+		        <th>T(F)</th>
+		        <th>A(km)</th>
+		        <th>T(F)</th>
+		        <th>(km)</th>
+		        <th>T(F)</th>
+		        <th>A(km)</th>
+		        <th>T(F)</th>
+		        <th>(km)</th>
+		        <th>T(F)</th>
+		        <th>A(km)</th>
+		    </tr>
+		</table>
+	</div>
+</div>
+
+<script src="radsim-built-min.js"></script>

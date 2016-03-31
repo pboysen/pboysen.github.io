@@ -1,0 +1,177 @@
+.radsim {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 525px;
+	border: 1px solid #AAA;
+	border-radius: 8px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 4px;
+}
+
+.columns {
+	display: block;
+}
+
+.display {
+	float: left;
+	display: inline-block;
+	margin: 4px;	
+}
+
+.choice_panel {
+	text-align: center;
+	display: block;
+}
+
+.legend {
+	margin: 3px;
+	border: 1px solid #AAA;
+	display: inline-block;
+}
+
+.legend caption {
+	font-weight: bold;
+}
+
+.legend th {
+	border: 1px solid #AAA;
+	font-weight: normal;
+	background: #EEE;
+	padding: 2px;
+}
+
+.legend tr td {
+	text-align: right;
+}
+
+.legend tr:nth-child(2) td:nth-child(2) {
+	width: 30px;
+	background:#F3E5AB;
+	padding: 4px;
+}
+
+.legend tr:nth-child(2) td:nth-child(3) {
+	width: 30px;
+	background:#FFD809;
+	padding: 4px;
+}
+
+.legend tr:nth-child(3) td:nth-child(2) {
+	width: 30px;
+	background:#966F33;
+	padding: 4px;
+}
+
+.legend tr:nth-child(3) td:nth-child(3) {
+	width: 30px;
+	background:#493D26;
+	padding: 4px;
+}
+
+.legend tr:nth-child(4) td:nth-child(2) {
+	width: 30px;
+	background:#7Fe817;
+	padding: 4px;
+}
+
+.legend tr:nth-child(4) td:nth-child(3) {
+	width: 30px;
+	background:#667C26;
+	padding: 4px;
+}
+
+.legend tr:nth-child(5) td:nth-child(2) {
+	width: 30px;
+	background:#FDEEF4;
+	padding: 4px;
+}
+
+.legend tr:nth-child(5) td:nth-child(3) {
+	width: 30px;
+	background:#E3E4FA;
+	padding: 4px;
+}
+
+.selected {
+	border: 1px solid blue;
+}
+
+#atgraph, #etgraph {
+	border: 1px solid #AAA;
+	display: block;
+}
+
+#maincanvas {
+	border: 1px solid #AAA;
+	display: block;
+	background: skyblue;
+}
+
+#control_panel {
+	text-align: center;
+}
+
+.options_panel {
+	width: 100%;
+	display: inline-block;
+	margin: 8px;
+}
+
+.button_panel {
+	width: 100%;
+	display: inline-block;
+}
+
+.button_panel input[type=button]{
+	width: 90px;
+	border: 1px solid #AAA;
+	border-radius: 4px;
+	margin: 4px;
+	background: white;
+	padding: 1px;
+}
+
+.button_panel input[type=button]:hover:enabled{
+	background: skyblue;
+	color: white;
+}
+
+#results {
+	width: 525px;
+	height: 200px;
+	margin: 0 auto;
+	display: block;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-top: 20px;
+	border: 1px solid #AAA;
+	border-radius: 8px;
+	overflow: auto;
+}
+
+#results table {
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #AAA;
+}
+
+#results table caption {
+	font-weight: bold;
+	border-bottom: 1px solid #AAA;
+}
+
+#results tr th {
+	border-right: 1px solid #AAA;
+	font-weight: normal;
+	background: #EEE;
+	padding: 2px;
+}
+
+#results tr td {
+	border-right: 1px solid #AAA;
+	background: white;
+	text-align: right;
+	padding: 2px;
+}
+
