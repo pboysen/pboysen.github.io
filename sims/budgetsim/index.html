@@ -1,0 +1,46 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>Budget Simulation</title>
+<link rel=stylesheet href="budgetsim.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+<div class="budgetsim">
+	<div class="columns">
+		<div class="col">
+			<canvas id="rategraph" width="200" height="200"></canvas>
+		</div>
+		<div class="col">
+			<canvas id="maincanvas" width="300" height="200"></canvas>
+		</div>
+		<div class="col">
+			<canvas id="levelgraph" width="200" height="200"></canvas>
+		</div>
+	</div>
+	<div id="control_panel">
+		<div class="button_panel">
+			<input type="button" id="run" value="Run" title="Run"/>
+			<input type="button" id="pause" value="Pause" title="Pause experiment"/>
+			<input type="button" id="restart" value="Restart" title="Restart experiment"/>
+			<input type="checkbox" id ="mute" value="Mute"/>Mute
+		</div>
+		<div class="slider_panel">
+			<div class="slider_control">
+				<label for="infow">Inflow Rate (l/hr)</label>
+				<div class="slider">
+				   <input type="range" id="inflow" min="0" max="5" step="0.1" value="0"/>
+				   <input type="text" id="inflowout" value="0" readonly/>
+				</div>
+			</div>
+			<div class="slider_control">
+				<label for="outflow">Outflow Rate (l/hr)</label>
+				<div class="slider">
+				   <input type="range" id="outflow" min="0" max="5" step="0.1" value="0"/>
+				   <input type="text" id="outflowout" value="0" readonly/>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>
+
+<script src="budgetsim-built-min.js"></script>
