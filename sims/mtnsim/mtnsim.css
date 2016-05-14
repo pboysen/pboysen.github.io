@@ -16,6 +16,11 @@
 	padding: 2px;
 }
 
+.delete_img {
+	width: 16px;
+	height: 16px;
+}
+
 #atgraph, #etgraph {
 	border: 1px solid #AAA;
 	display: block;
@@ -164,6 +169,7 @@ label {
 .slider input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
 }
+
 #results {
 	width: 750px;
 	height: 200px;
@@ -196,8 +202,16 @@ label {
 
 #results tr td {
 	border-right: 1px solid #AAA;
+	border-top: 1px solid #AAA;
 	background: white;
 	text-align: right;
-	padding: 2px;
 }
+
+.delete_img {
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
 
