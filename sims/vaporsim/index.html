@@ -1,0 +1,21 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>Radiation Simulation</title>
+<link rel=stylesheet href="vaporsim.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+<div class="vaporsim">
+	<div class="display">
+		<canvas id="maincanvas" width="400" height="400"></canvas>
+	</div>
+	<div id="control_panel">
+		<div class="button_panel">
+			<input type="button" id="run" value="Run" title="Run simulation"/>
+			<input type="button" id="burner" value="Burner" title="Turn the flame on/off" disabled="disabled"/>
+			<input type="button" id="reset" value="Reset" title="Start over"/>
+		</div>
+	</div>
+</div>
+
+<script src="vaporsim-built-min.js"></script>

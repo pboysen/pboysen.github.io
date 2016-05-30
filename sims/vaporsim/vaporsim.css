@@ -1,0 +1,120 @@
+.vaporsim {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 400px;
+	border: 1px solid #AAA;
+	border-radius: 8px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 4px;
+}
+
+.columns {
+	display: block;
+}
+
+.display {
+	display: inline-block;
+	margin: 4px;	
+}
+
+.choice_panel {
+	text-align: center;
+	display: block;
+}
+
+.legend {
+	margin: 3px;
+	border: 1px solid #AAA;
+	display: inline-block;
+}
+
+.legend caption {
+	font-weight: bold;
+}
+
+.legend th {
+	border: 1px solid #AAA;
+	font-weight: normal;
+	background: #EEE;
+	padding: 2px;
+}
+
+.legend tr td {
+	text-align: right;
+}
+
+.legend tr:nth-child(2) td {
+	background:#8A4117;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	border-bottom: 1px solid #000;
+}
+
+.legend tr:nth-child(3) td {
+	background:#A52A2A;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	border-bottom: 1px solid #000;
+}
+
+.legend tr:nth-child(4) td {
+	background:#667C26;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	border-bottom: 1px solid #000;
+}
+
+.legend tr:nth-child(5) td {
+	background:#0000FF;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+}
+
+ .selected {
+	border: 1px solid blue;
+}
+
+#atgraph, #etgraph {
+	border: 1px solid #AAA;
+	display: block;
+}
+
+#maincanvas {
+	border: 0;
+	display: block;
+	background: white;
+}
+
+#control_panel {
+	text-align: center;
+}
+
+.options_panel {
+	width: 100%;
+	display: inline-block;
+	margin: 8px;
+}
+
+.button_panel {
+	width: 100%;
+	display: inline-block;
+}
+
+.button_panel input[type=button]{
+	width: 90px;
+	border: 1px solid #AAA;
+	border-radius: 4px;
+	margin: 4px;
+	background: white;
+	padding: 1px;
+}
+
+.button_panel input[type=button]:hover:enabled{
+	background: skyblue;
+	color: white;
+}
