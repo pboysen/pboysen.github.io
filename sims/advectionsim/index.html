@@ -1,0 +1,62 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>Advection Simulation</title>
+<link rel=stylesheet href="advectionsim.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+<div class="advectionsim">
+	<div class="columns">
+		<div class="col">
+			<canvas id="maincanvas" width="700" height="400"></canvas>
+		</div>
+	</div>
+	<div id="control_panel">
+		<div class="button_panel">
+			<input type="button" id="run" value="Run" title="Run"/>
+			<input type="button" id="pause" value="Pause" title="Pause experiment"/>
+			<input type="button" id="reset" value="Reset" title="Reset experiment"/>
+			<input type="checkbox" id ="mute" value="Mute"/>Mute
+		</div>
+		<div class="slider_panel">
+			<div class="slider_control">
+				<label for="wind">Wind Speed (knots/hour)</label>
+				<div class="slider">
+				   <input type="range" id="wind" min="5" max="40" step="1" value="1"/>
+				   <input type="text" id="windout" value="1" readonly/>
+				</div>
+			</div>
+			<div class="slider_control">
+				<label for="wdir">Wind Direction</label>
+				<select id="wdir">
+					<option value="270">N</option>
+					<option value="315">NE</option>
+					<option value="0">E</option>
+					<option value="45">SE</option>
+					<option value="90">S</option>
+					<option value="135">SW</option>
+					<option value="180">W</option>
+					<option value="225">NW</option>
+				</select>
+			</div>
+			<div class="slider_control">
+				<label for="duration">Duration (hours)</label>
+				<div class="slider">
+				   <input type="range" id="duration" min="5" max="24" step="1" value="1"/>
+				   <input type="text" id="durationout" value="1" readonly/>
+				</div>
+			</div>
+			<div class="slider_control">
+				<label for="spacing">Spacing</label>
+				<select id="spacing">
+					<option value="100">narrow (100 km)</option>
+					<option value="175">small (175 km)</option>
+					<option value="250">medium (250 km)</option>
+					<option value="375">wide (375 km)</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="advectionsim-built-min.js"></script>
