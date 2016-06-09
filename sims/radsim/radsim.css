@@ -43,37 +43,28 @@
 
 .legend tr td {
 	text-align: right;
-}
-
-.legend tr:nth-child(2) td {
-	background:#8A4117;
 	padding: 4px;
 	color: white;
 	font-weight: bold;
+}
+
+.legend tr:nth-child(2) td {
+	background:#667C26;
 	border-bottom: 1px solid #000;
 }
 
 .legend tr:nth-child(3) td {
-	background:#A52A2A;
-	padding: 4px;
-	color: white;
-	font-weight: bold;
+	background:#8A4117;
 	border-bottom: 1px solid #000;
 }
 
 .legend tr:nth-child(4) td {
-	background:#667C26;
-	padding: 4px;
-	color: white;
-	font-weight: bold;
+	background:#A52A2A;
 	border-bottom: 1px solid #000;
 }
 
 .legend tr:nth-child(5) td {
 	background:#0000FF;
-	padding: 4px;
-	color: white;
-	font-weight: bold;
 }
 
  .selected {
