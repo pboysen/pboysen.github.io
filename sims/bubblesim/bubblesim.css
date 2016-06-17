@@ -1,6 +1,6 @@
 .bubblesim {
 	font-family: Arial, Helvetica, sans-serif;
-	width: 400px;
+	width: 300px;
 	border: 1px solid #AAA;
 	border-radius: 8px;
 	display: block;
@@ -106,7 +106,7 @@
 }
 
 .button_panel input[type=button]{
-	width: 90px;
+	width: 60px;
 	border: 1px solid #AAA;
 	border-radius: 4px;
 	margin: 4px;
