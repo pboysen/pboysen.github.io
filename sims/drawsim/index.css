@@ -12,3 +12,6 @@
 	margin: 10px;
 }
 
+#download {
+	cursor: pointer;
+}
