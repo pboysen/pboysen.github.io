@@ -15,3 +15,28 @@
 #download {
 	cursor: pointer;
 }
+
+#panel {
+	width: 800px;
+	display: inline-block;
+	text-align: center;
+}
+
+#panel a:link {
+    text-decoration: none;
+}
+
+#panel input[type=button]{
+	width: 90px;
+	border: 1px solid #AAA;
+	border-radius: 4px;
+	margin: 4px;
+	background: white;
+	padding: 1px;
+}
+
+#panel input[type=button]:hover:enabled{
+	background: skyblue;
+	color: white;
+}
+
