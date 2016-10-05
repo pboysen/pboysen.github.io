@@ -52,7 +52,7 @@ label {
 }
 
 .slider {
-	width: 350px;
+	width: 220px;
 	display: inline-block;
 	border: 1px solid #AAA;
 	border-radius: 4px;
@@ -60,7 +60,7 @@ label {
 	padding: 4px;
 }
 
-#tempout, #vaporout, #windout {
+#tempout, #vaporout, #windout, #dewpointout {
 	width: 3em;
 	text-align: right;
 	border: 1px solid #AAA;
@@ -91,11 +91,11 @@ label {
 	display: inline;
 	-webkit-appearance: none;
     border: 1px solid white;
-    width: 250px;
+    width: 130px;
 	cursor: pointer;
 }
 .slider input[type=range]::-webkit-slider-runnable-track {
-    width: 100px;
+    width: 80px;
     height: 5px;
     background: skyblue;
     border: none;
@@ -120,7 +120,7 @@ label {
 .slider input[type=range]::-moz-range-track {
 	vertical-align: middle;
 	display: inline;
-	width: 250px;
+	width: 150px;
     height: 5px;
     background: skyblue;
     border: none;
@@ -142,7 +142,7 @@ label {
 .slider input[type=range]::-ms-track {
 	vertical-align: middle;
 	display: inline;
-	width: 250px;
+	width: 150px;
     height: 5px;
     background: transparent;
     border-color: transparent;
@@ -168,6 +168,25 @@ label {
 }
 .slider input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
+}
+
+.readout {
+}
+
+.readout label {
+	float: left;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+.readout input[type=text] {
+	float: left;
+	display: block;
+	width: 3em;
+	text-align: right;
+	border: 1px solid #AAA;
+	border-radius: 4px;
+    background: #eee;
 }
 
 #results {
