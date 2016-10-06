@@ -47,6 +47,11 @@
 	text-align: center;
 }
 
+#dp {
+	display: none;
+	text-align: center;
+}
+
 label {
 	display: block;
 }
@@ -170,16 +175,17 @@ label {
     background: #ccc;
 }
 
-.readout {
+#readout {
+	display: none;
 }
 
-.readout label {
+#readout label {
 	float: left;
 	margin-left: 10px;
 	margin-right: 5px;
 }
 
-.readout input[type=text] {
+#readout input[type=text] {
 	float: left;
 	display: block;
 	width: 3em;
