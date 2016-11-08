@@ -1,0 +1,27 @@
+{
+	"image": "assets/sfc_slp_map.gif",
+	"spots": [
+		{
+			"x": 369,
+			"y": 159,
+			"radius": 32,
+			"window": {
+				"url": "",
+				"title": "test1",
+				"features": "height=400,width=400,toolbar=no,menubar=no,status=no,location=no,resizable=yes,scrollbars=yes",
+				"embed": false
+			}
+		},
+		{
+			"x": 370,
+			"y": 256,
+			"radius": 20,
+			"window": {
+				"url": "https://www.iastate.edu",
+				"title": "test2",
+				"features": "height=400,width=400,toolbar=no,menubar=no,status=no,location=no,resizable=yes,scrollbars=yes",
+				"embed": false
+			}
+		}
+	]
+}
