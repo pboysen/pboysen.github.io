@@ -1,0 +1,46 @@
+.hotspotsim {
+	font-family: Arial, Helvetica, sans-serif;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 4px;
+}
+
+.col {
+	float: left;
+	display: block;
+	margin: 2px;
+	padding: 2px;
+}
+
+#control_panel {
+	text-align: center;
+}
+
+.button_panel {
+	width: 100%;
+	display: inline-block;
+}
+
+.button_panel input[type=button] {
+	width: 90px;
+	border: 1px solid #AAA;
+	border-radius: 4px;
+	margin: 4px;
+	background: white;
+	padding: 1px;
+}
+
+.button_panel input[type=button]:hover:enabled {
+	background: skyblue;
+	color: white;
+}
+
+textarea {
+    -moz-tab-size : 2;
+    -o-tab-size : 2;
+    tab-size : 2;
+}
+
+#maptext {
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+
+<meta charset="utf-8"/>
+<title>HotSpotSim</title>
+<link rel=stylesheet href="index.css">
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+<div class="hotspotsim">
+	<h3>Instructions</h3>
+	<div id="instruct"></div>
+	<div class="columns">
+		<div class="col">
+			<canvas id="maincanvas" width="800" height="600"></canvas>
+		</div>
+		<div class="col">
+			<div id="control_panel">
+				<div class="button_panel">
+					<input type="button" id="update" value="Update" title="Update"/>
+					<input type="button" id="download" value="Download" title="Download hotspot map"/>
+				</div>
+				<p>hotspot.json:</p>
+				<textarea id="maptext" cols="80", rows="20"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="hotspotsim-built-min.js"></script>
