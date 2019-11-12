@@ -118,6 +118,10 @@ body {
 	color: white;
 }
 
+.phase button[selected] {
+	background-color: var(--main-comp-color);
+	color: white;
+}
 .phaseStatus {
 	vertical-align: middle;
 	display: inline-block;
@@ -179,6 +183,9 @@ body {
 	white-space: nowrap;
 }
 
+.submit {
+	background-color: var(--main-bg-color);
+}
 #toolMenu img {
 	//padding: 4px;
 }

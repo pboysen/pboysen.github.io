@@ -5,9 +5,9 @@ if (!pdfjsLib.getDocument || !pdfjsViewer.PDFPageView) {
         '  `gulp dist-install`');
 };
 
-pdfjsLib.GlobalWorkerOptions.workerSrc ='pdf.worker.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc ='node_modules/pdfjs-dist/build/pdf.worker.js';
 
-var CMAP_URL = 'cmaps/';
+var CMAP_URL = 'node_modules/pdfjs-dist/cmaps/';
 var CMAP_PACKED = true;
 
 var DEFAULT_URL = 'Designer Help.pdf';
@@ -49,7 +49,7 @@ function loadDocument(url) {
 		getCase(url,document.numPages);
 	    fillPhasePanel();
 	    fillToolMenu();
-	    showPhase(currentPhase);
+	    showPhase(1);
 	});
 }
 
@@ -69,7 +69,7 @@ function getNewCase(url,nphases) {
 	for (var i = 1; i <= nphases; i++) {
 		var phase = {
 			"id": i,
-			"title": "empty",
+			"title": "phase "+i,
 			"submit": "submit",
 			"state": state,
 			"widgets": {},
@@ -125,29 +125,31 @@ function loadPhase(phase) {
 	    });
 	    pdfPageView.setPdfPage(pdfPage);
 	    pdfPageView.draw();
+	    var pageView = phaseViews[phase.id].getElementsByClassName("page").item(0);
 	    // if there are no annotations the annotationLayer will not be added by pdf.js so add one.
 	    var layer = phaseViews[phase.id].getElementsByClassName("annotationLayer").item[0];
 	    if (!layer) {
-		    var pageView = phaseViews[phase.id].getElementsByClassName("page").item(0);
 	    	layer = document.createElement("div");
 	    	layer.className = "annotationLayer";
 	    	pageView.appendChild(layer);
 	    };
-/*	    for (var key in phase.widgets) {
-	    	var value = phase.widgets[key];
-	    	var widget = getViewableWidget(value.type);
-	    	placeWidget(widget,value.rect.x,value.rect.y);
-	    };
-*/	    moveWidgetMenus();
+		var menuLayer = document.getElementById("menuLayer");
+	    pageView.appendChild(menuLayer.cloneNode(true));
+	    redisplayWidgets();
 	});	
 }
+
+function redisplayWidgets() {}
+
 // swap phase views 
 function showPhase(pindex) {
+	var phaseButton = document.getElementById("ptitle"+currentPhase);
+	phaseButton.removeAttribute("selected");
 	var wrapper = document.getElementById("viewerWrapper");
 	wrapper.replaceChild(phaseViews[pindex],wrapper.firstElementChild);
-	// move menuLayer to active page so menus can scroll with content
-	moveWidgetMenus();
 	currentPhase = pindex;
+	phaseButton = document.getElementById("ptitle"+currentPhase);
+	phaseButton.setAttribute("selected","true");
 }
 
 function fillPhasePanel() {
@@ -185,21 +187,6 @@ function savePhase() {
 	saveCase();
 	toggleMenu("hidden");
 }
-
-function moveWidgetMenus() {
-	var page = document.getElementsByClassName("page").item(0);
-	/* page 1 may not be rendered yet when showPage is called.
-	 * Menus will be moved when it is rendered.
-	 */
-	if (page) {
-		var menuLayer = document.getElementById("menuLayer");
-		if (menuLayer) {
-			menuLayer.parentNode.removeChild(menuLayer);
-			page.appendChild(menuLayer);
-		};
-	};
-}
-
 
 function toggleMenu(command) {
 	if (menu) menu.style.visibility = command;
