@@ -1,0 +1,304 @@
+:root {
+  --main-bg-color: lightblue;
+  --main-fg-color: white;
+  --main-comp-color: #e6bbad;
+  --main-font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#casePanel {
+	width: 100%;
+	height: 32px;
+	padding: 5px;
+	background-color: var(--main-bg-color);
+	text-align: center;
+}
+
+#casePanel:nth-child(1) {
+	font-size: 28px;
+	font-family: "Brush Script MT";
+	color: white;
+}
+
+#files {
+	float: right;
+	margin-right: 20px;
+}
+
+#files button {
+	border-radius: 5px;
+	padding: 2px 4px 2px 4px;
+	background-color: white;
+	color: black;
+	margin: 0px;
+}
+
+#files button:hover {
+	background-color: var(--main-comp-color);
+	color: white;
+}
+
+#titles {
+	font-family: var(--main-font-family);
+	display: inline-block;
+	margin: 0px 10px 0 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	padding: 0px 5px 0 20px;
+}
+
+#titles input {
+	margin: 0px 5px 0px 5px;
+}
+
+#phaseWrapper {
+	white-space: nowrap;
+	background-color: var(--main-bg-color);
+	height: 48px;
+	border: 1px solid gray;
+	vertical-align: middle;
+}
+
+#phasePanel {
+	display: inline-block;
+	background-color: var(--main-bg-color);
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	padding: 2px;
+	width: 100%;
+	white-space: nowrap;
+	cursor: pointer;
+	overflow-x: scroll;
+}
+
+#phasePanel span {
+	font-family: var(--main-font-family);
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	margin: 0 20px 0 10px;
+}
+
+.phase {
+	min-width: 20px;
+	font-size: 12px;
+	font-family: var(--main-font-family);
+	display: inline-block;
+	margin: 0 16px 0px 5px;
+	white-space: nowrap;
+	padding-right: 16px;
+	
+}
+
+.phase:hover {
+   	background-image: url("assets/phaseprops.png");
+   	background-position: 95% 0%;
+   	background-repeat: no-repeat;
+}
+
+
+.phase button {
+	border-radius: 5px;
+	padding: 2px 4px 2px 4px;
+	background-color: white;
+	color: black;
+	margin: 0px;
+}
+
+.phase button:hover {
+	border-radius: 5px;
+	background-color: var(--main-comp-color);
+	color: white;
+}
+
+.phaseStatus {
+	vertical-align: middle;
+	display: inline-block;
+	margin: 0 2px 0 2px;
+}
+
+#contentDisplay {
+	width: 100%;
+	height: 100%;
+	white-space: nowrap;
+}
+
+#viewerWrapper {
+	float: left;
+}
+
+#viewerContainer {
+	height: 100%;
+	width: 70%;
+	position:absolute;
+	overflow: auto;
+}
+
+#widgetPanel {
+	position: relative;
+	left: 300px;
+	top: 0px;
+	padding: 0 2px 4px 2px;
+	height: 22px;
+	z-index: 10;
+	border-radius: 0 0 5px 5px;
+	background-color: var(--main-bg-color);
+	box-shadow: 2px 2px gray;
+}
+
+.widgetOption {
+	font-size: 14px;
+	font-family: var(--main-font-family);
+	vertical-align: middle;
+	padding: 2px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#toolWrapper {
+	width: 30%;
+	border-left: thick solid var(--main-bg-color);
+	float: right;
+}
+
+#toolMenu {
+	width: 100%;
+	height: 28px;
+	font-size: 12px;
+	font-family: var(--main-font-family);
+	background-color: var(--main-bg-color);
+	color: black;
+	border-bottom: 1px solid black;
+	white-space: nowrap;
+}
+
+#toolMenu img {
+	//padding: 4px;
+}
+
+.toolTab {
+	height: 18px;
+	padding: 2px;
+	border-radius: 5px 5px 0 0;
+	background-color: #FFFFFF;
+	margin: 6px 4px 0 4px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.toolTab[selected] {
+	height: 24px;
+}
+
+.addTab {
+	font-size: 20px;
+	font-family: var(--main-font-family);
+	background-color: var(--main-bg-color);
+	margin: 0 4px 0px 8px;
+	color: white;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#toolContent {
+	width: 100%;
+	height: 1000px;
+	overflow-y: scroll;
+}
+
+#Resources {
+	display: none;
+}
+
+#Comments {
+	display: none;
+}
+
+#Observations {
+	display: none;
+}
+
+/* popup dialogs */
+.popupDialog {
+	font-size: 12px;
+	font-family: var(--main-font-family);
+	padding: 8px;
+	color: black;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 2px 2px gray;
+	background-color: var(--main-comp-color);
+	visibility:hidden;
+	z-index: 20;
+	position: absolute;
+}
+
+.popupDialog .title {
+	font-weight: bold;
+	font-color: black;
+	text-align: center;
+}
+
+.popupDialog .instructions {
+	width: 200px;
+}
+
+.popupDialog .error {
+	margin: 4px;
+	border: 1px solid gray;
+	padding: 2px;
+	margin: 4px;
+	visiblity:hidden;
+	background: yellow;
+	color: black;
+}
+
+.popupDialog .buttonBar {
+	padding: 4px;
+	margin: 15px;
+	white-space: nowrap:                 
+  	box-sizing: border-box;
+}
+
+.popupDialog .buttonBar button {
+	background-color: var(--main-fg-color);
+	border-radius: 4px;
+	color: black;
+	float: left;
+	margin-right: 10px;
+}
+
+.popupDialog .buttonBar button[title="Cancel"] {
+	float: right;
+}
+
+#addList {
+	width: 200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#listMenu input[type="text"] {
+	width: 80px;
+	margin: 4px;
+}
+
+#toolsDialog {
+	width: 250px;
+	position: relative;
+	top: 20px;
+	left: 20px;
+}
+
+#fileMenu {
+	left: 60%;
+	top: 5%;
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html dir="ltr" mozdisallowselectionprint>
+<!--
+Copyright 2014 Mozilla Foundation
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google" content="notranslate">
+<title>ProjectX Case Designer</title>
+
+<link rel="stylesheet" href="casedesigner.css">
+<link rel="stylesheet" href="widgets.css">
+<link rel="stylesheet" href="../node_modules/pdfjs-dist/web/pdf_viewer.css">
+
+<script src="../node_modules/pdfjs-dist/build/pdf.js" type="text/javascript"></script>
+<script src="../node_modules/pdfjs-dist/web/pdf_viewer.js" type="text/javascript"></script>
+
+</head>
+<body tabindex="-1">
+	<div id="casePanel">
+		<span>ProjectX Case Designer</span>
+		<div id="files">
+			<button onClick="showFileUpload()"><img src="assets/fileupload.png"/></button>
+			<button onClick="showFileDownload()"><img src="assets/filedownload.png"/></button>
+		</div>	
+	</div>
+	<div id="phaseWrapper">
+		<div id="phasePanel">
+		</div>
+	</div>
+	<div id="contentDisplay">
+		<div id="viewerWrapper">
+			<div id="viewerContainer"></div>
+			<div id="widgetPanel">
+				<img class="widgetOption" src="assets/textfield.png" title="textfield" alt="" />
+				<img class="widgetOption" src="assets/textarea.png" title="textarea" alt="" />
+				<img class="widgetOption" src="assets/choice.png" title="list" alt="" />
+				<img class="widgetOption" src="assets/select.png" title="select" alt="" />
+				<img class="widgetOption" src="assets/cforward.png" title="carryforward" alt="" />
+				<img class="widgetOption" src="assets/media.png" title="media" alt="" />
+				<img class="widgetOption" src="assets/diagpath.png" title="diagnosticpath" alt="" />
+			</div>
+			<div id="menuLayer">
+				<div id="phaseMenu" class="popupDialog">
+					<div class="title">Phase Properties</div>
+					<div class="instructions">
+						<p>Enter a title for your phase.<br/>
+						</p>
+					</div>
+					<span>Phase Title: </span><input type="text" id="phaseTitle"/>
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button onClick=savePhase()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="addList" class="popupDialog">
+					<div class="title">List Properties</div>
+					<div class="instructions">
+						<p>Select a type for your list.<br/>
+						</p>
+					</div>
+					<input type="radio" name="listType" value="multiplechoice" checked="checked" />
+					<b>Multiple Choice</b><br/>
+					<input type="radio" name="listType" value="checklist" />
+					<b>Checklist</b></br>
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button onClick=saveList()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="textfield" class="popupDialog">
+					<div class="title">Textfield Properties</div>
+					<div class="instructions">
+						<p>Select a width in characters.</p>
+					</div>
+					<select id="textwidth">
+						<option>Select a width</option>
+						<option value="10">10</option>
+						<option selected="selected" value="20">20</option>
+						<option value="40">40</option>
+						<option value="80">80</option>
+					</select><br/><br/>
+					<input type="checkbox" name="optional"> Optional<br/>
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button onClick=saveTextfield()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="textarea" class="popupDialog">
+					<div class="title">Textarea Properties</div>
+					<div class="instructions">
+						<p>Choose whether the student must<br/>supply an answer.</p>
+					</div>
+					<input type="checkbox" name="optional"> Optional<br/>
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button onClick=saveTextarea()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="select" class="popupDialog">
+					<div class="title">Select Properties</div>
+					<div class="instructions">
+						<p>Enter option names separated by semicolons.<br/>
+						Pick optional if the students doesn't have to<br/>pick an option.</p>
+					</div>
+					Select Options: <input type="text" id="select-options" 
+					placeholder="Option Names"/><br/><br/>
+					<input type="checkbox" name="optional"> Optional<br/>
+					<div class="error">Enter at least one option.</div>
+					<div class="buttonBar">
+						<button onClick=saveSelect()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="carryforward" class="popupDialog">
+					<div class="title">Carry-forward Properties</div>
+					<div class="instructions">
+						<p>Select a widget from a previous phase.<br/>
+						It's value will be displayed here.</p>
+					</div>
+					<select id="carryForwardSource">
+						<option disabled="disabled" selected="selected">Select a widget.</option>
+					</select>
+					<div class="error">Select one.</div>
+					<div class="buttonBar">
+						<button onClick=saveCarryforward()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="media" class="popupDialog">
+					<div class="title">Media Properties</div>
+					<div class="instructions">
+						<p>Enter a media url to show.<br/>
+						For example, youTube, website, ...</p>
+					</div>
+					URL: <input type="text" id="iframe-src" placeholder="Enter a URL"/>
+					<div class="error">You must supply a URL</div>
+					<div class="buttonBar">
+						<button onClick=saveMedia()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="diagnosticpath" class="popupDialog">
+					<div class="title">Diagnostic Path Properties</div>
+					<div class="instructions">
+						<p>Supply a URL only when the answer should be displayed. 
+						Leave it blank for student mode.</p>
+					</div>
+					Expert Path URL: <input type="text" id="expert-path" placeholder="Enter a URL"/>
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button onClick=saveExpertPath()>Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="list" class="popupDialog">
+					<div class="title">Making a List</div>
+					<div class="instructions">
+						<p>Click on the first bullet in a bulleted<br/>
+						list to make it a multiple-choice<br/>
+						question or a checklist.<br/><br/>
+						 Cancel this dialog to start.
+					    </p>
+					</div>
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="toolWrapper">
+			<div id="toolMenu"></div>
+			<div id="toolContent">
+				<div id="toolsDialog" class="popupDialog">
+					<div class="title">Tool Selector</div>
+					<div class="instructions">
+						<p>Select the tools to include in the Toolbox<br/>
+						for this phase.</p>
+					</div>
+					<input type="checkbox" value="Resources">
+					Resources<br />
+					<input type="checkbox" value="Comments">
+					Comments<br />
+					<input type="checkbox" value="Observations">
+					Observations<br />
+					<div class="error"></div>
+					<div class="buttonBar">
+						<button onClick="saveTools()">Save</button>
+						<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+					</div>
+				</div>
+				<div id="Resources">
+					<img src="assets/resources.png"/>
+				</div>
+				<div id="Comments">
+					<img src="assets/comments.png"/>
+				</div>
+				<div id="Observations">
+					<img src="assets/observations.png"/>
+				</div>
+				<div id="Roster"></div>
+			</div>
+		</div>
+		<div id="fileMenu" class="popupDialog">
+			<div class="title">Document Options</div>
+			<div class="instructions">
+				<ol>
+					<li>Select your working folder.</li>
+					<li>Select the PDF document.</li>
+					<li>Click Open or Save.</li>
+				</ol> 
+			</div>
+			<span>Folder: </span><input id="folder" type="file"><br/>
+			<span>Document: </span><input id="document" type="file" accept=".pdf">
+			<div class="error"></div>
+			<div class="buttonBar">
+				<button type="button" onclick=openPDF() title="Open">Open</button>
+				<button type="button" onclick=SavePDF() title="Save">Save</button>
+				<button type="button" onclick=toggleMenu("hidden") title="Cancel">Cancel</button>
+			</div>
+		</div>
+</div>
+	<script src="casedesigner.js" type="text/javascript"></script>
+</body>
+</html>
