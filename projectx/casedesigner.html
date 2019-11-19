@@ -128,17 +128,19 @@ limitations under the License.
 			</div>
 			<span class="configure-title">Basic Widgets</span><br/>
 			<div id="basic-widgets">
-				<span></span><input type="checkbox" id="widgetbar-textfield"> Textfield</span>
-				<span><input type="checkbox" id="widgetbar-textarea"> Textarea</span>
-				<span><input type="checkbox" id="widgetbar-list"> List</span><br/>
-				<span><input type="checkbox" id="widgetbar-select"> Select</span>
-				<span><input type="checkbox" id="widgetbar-carryforward"> Carryforward</span>
-				<span><input type="checkbox" id="widgetbar-media"> Media</span><br/>
+				<select id="selectWidgets" multiple="multiple" size="4">
+					<option value="textfield">Textfield</option>
+					<option value="textarea">Textarea</option>
+					<option value="list">List</option>
+					<option value="select">Select</option>
+					<option value="carryforward">Carryforward</option>
+					<option value="media">Media</option>
+				</select>
 			</div>
 			<span class="configure-title">Licensed Widgets</span><br/>
-			<div id="licensed-widgets">
-				<span><input type="checkbox" id="widgetbar-diagnosticpath"> Diagnostic Path</span>
-			</div>
+			<select id="licensed-widgets" size="4" multiple="multiple">
+				<option value="diagnosticpath">Diagnostic Path</option>
+			</select>
 			<div class="error"></div>
 			<div class="buttonBar">
 				<button onClick=saveWidgetBar()>Save</button>

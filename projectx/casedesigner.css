@@ -186,9 +186,8 @@ body {
 	padding: 2px;
 }
 
-#basic-widgets, #licensed-widgets {
-	background-color: var(--main-fg-color);
-	border: 1px solid black;
+#configure select {
+	width: 80%;
 	margin: 10px;
 	padding: 2px;
 	border-radius: 5px;
