@@ -28,29 +28,36 @@ limitations under the License.
 </head>
 <body tabindex="-1">
 	<div id="casePanel">
-		<span>ProjectX Case Designer</span>
+		<div id="roles">
+			<span>Role: </span>
+			<select id="role" onChange="roleChange(this.options[this.selectedIndex].text)">
+				<option>Designer</option>
+				<option>Student</option>
+			</select>
+		</div>
+		<span id="maintitle">ProjectX Case Designer</span>
 		<div id="files">
-			<button onClick="fileUpload()"><img src="assets/fileupload.png"/></button>
-			<button onClick="fileDownload()"><img src="assets/filedownload.png"/></button>
+			<button onClick="fileUpload(event);"><img src="assets/fileupload.png"/></button>
+			<button onClick="fileDownload(event)"><img src="assets/filedownload.png"/></button>
 		</div>	
 	</div>
 	<div id="phaseWrapper">
-		<div id="phasePanel">
-		</div>
+		<div id="phasePanel"></div>
 	</div>
 	<div id="contentDisplay">
 		<div id="viewerWrapper">
-			<div id="viewerContainer"></div>
-			<div id="widgetPanel">
+			<div id="viewerContainer">
+			</div>
+			<div id="widgetBar">
 				<img class="widgetOption" src="assets/textfield.png" title="textfield" alt="" />
 				<img class="widgetOption" src="assets/textarea.png" title="textarea" alt="" />
 				<img class="widgetOption" src="assets/choice.png" title="list" alt="" />
 				<img class="widgetOption" src="assets/select.png" title="select" alt="" />
 				<img class="widgetOption" src="assets/cforward.png" title="carryforward" alt="" />
 				<img class="widgetOption" src="assets/media.png" title="media" alt="" />
-				<img class="widgetOption" src="assets/diagpath.png" title="diagnosticpath" alt="" />
+				<img class="widgetOption" src="assets/phaseprops.png" title="configure" alt="" />
 			</div>
-<!-- 			<div class="submit"><button onClick=submit()>Submit</button></div> -->
+ 			<div id="submitButton" class="submit"><button onClick=submit()>Submit</button></div>
 		</div>
 		<div id="toolWrapper">
 			<div id="toolMenu"></div>
@@ -85,33 +92,67 @@ limitations under the License.
 				<div id="Roster"></div>
 			</div>
 		</div>
-		<div id="fileMenu" class="popupDialog">
-			<div class="title">Document Options</div>
+		<div id="openFile" class="popupDialog">
+			<div class="title">Open File</div><br/>
 			<div class="instructions">
-				<ol>
-					<li>Select your working folder.</li>
-					<li>Select the PDF document.</li>
-					<li>Click Open or Save.</li>
-				</ol> 
+				<div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+				  	<p>Drop a PDF or CASE file here</p>
+				</div>
 			</div>
-			<span>Folder: </span><input id="folder" type="file"><br/>
-			<span>Document: </span><input id="document" type="file" accept=".pdf">
 			<div class="error"></div>
 			<div class="buttonBar">
-				<button type="button" onclick=openPDF() title="Open">Open</button>
-				<button type="button" onclick=SavePDF() title="Save">Save</button>
+				<button type="button" onclick=toggleMenu("hidden") title="Cancel">Cancel</button>
+			</div>
+		</div>
+		<div id="saveFile" class="popupDialog">
+			<div class="title">Save File</div><br/>
+			<div class="instructions">
+				<p>Enter the name of the file to save.<br/>
+				  It will be saved as a .case file.
+				</p>
+			</div>
+			<p>File: <input type="text" id="saveFileName" size="10"> <b>.case</b></p>
+			<div class="error"></div>
+			<div class="buttonBar">
+				<button type="button" onclick="saveFile();" title="Save">Save</button>
 				<button type="button" onclick=toggleMenu("hidden") title="Cancel">Cancel</button>
 			</div>
 		</div>
 	</div>
 	<div id="menuLayer">
+		<div id="configure" class="popupDialog">
+			<div class="title">Configure Widgetbar</div>
+			<div class="instructions">
+				<p>Select the widgets you want on the Widgetbar.<br/>
+				</p>
+			</div>
+			<span class="configure-title">Basic Widgets</span><br/>
+			<div id="basic-widgets">
+				<span></span><input type="checkbox" id="widgetbar-textfield"> Textfield</span>
+				<span><input type="checkbox" id="widgetbar-textarea"> Textarea</span>
+				<span><input type="checkbox" id="widgetbar-list"> List</span><br/>
+				<span><input type="checkbox" id="widgetbar-select"> Select</span>
+				<span><input type="checkbox" id="widgetbar-carryforward"> Carryforward</span>
+				<span><input type="checkbox" id="widgetbar-media"> Media</span><br/>
+			</div>
+			<span class="configure-title">Licensed Widgets</span><br/>
+			<div id="licensed-widgets">
+				<span><input type="checkbox" id="widgetbar-diagnosticpath"> Diagnostic Path</span>
+			</div>
+			<div class="error"></div>
+			<div class="buttonBar">
+				<button onClick=saveWidgetBar()>Save</button>
+				<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
+			</div>
+		</div>
 		<div id="phaseMenu" class="popupDialog">
 			<div class="title">Phase Properties</div>
 			<div class="instructions">
 				<p>Enter a title for your phase.<br/>
 				</p>
 			</div>
-			<span>Phase Title: </span><input type="text" id="phaseTitle"/>
+			<span>Phase Title: </span><input type="text" id="phaseTitle"/><br/><br/>
+			<span>Submit Title:</span><input type="text" id="submitTitle"/>
 			<div class="error"></div>
 			<div class="buttonBar">
 				<button onClick=savePhase()>Save</button>
@@ -145,8 +186,19 @@ limitations under the License.
 				<option selected="selected" value="20">20</option>
 				<option value="40">40</option>
 				<option value="80">80</option>
-			</select><br/><br/>
-			<input type="checkbox" name="optional"> Optional<br/>
+			</select><br/>
+			</p>
+			<p>
+			The student must provide an answer before advancing.
+			</p>
+			<p><input type="checkbox" class="isRequired"> Required</p>
+			<div class="optional">
+				<p>
+				(Optional) The student must provide a correct answer before advancing.
+				Separate multiple correct answers with a semicolon(;).
+				</p>
+				<span>Answers: </span><input type="text" id="textfield-answers" size="25"><br/>
+			</div>
 			<div class="error"></div>
 			<div class="buttonBar">
 				<button onClick=saveTextfield()>Save</button>
@@ -156,9 +208,18 @@ limitations under the License.
 		<div id="textarea" class="popupDialog">
 			<div class="title">Textarea Properties</div>
 			<div class="instructions">
-				<p>Choose whether the student must<br/>supply an answer.</p>
+				<p>Optional means that the student <br/>
+					does not need to enter text for this<br/>
+					widget to advance to the next phase.
+				</p>
 			</div>
-			<input type="checkbox" name="optional"> Optional<br/>
+			<p>
+			The student must provide an answer before advancing.
+			</p>
+			<p><input type="checkbox" class="isRequired"> Required</p>
+			<select id="carryForwardSource">
+				<option disabled="disabled" selected="selected">Select a widget.</option>
+			</select>
 			<div class="error"></div>
 			<div class="buttonBar">
 				<button onClick=saveTextarea()>Save</button>
@@ -169,7 +230,10 @@ limitations under the License.
 			<div class="title">Select Properties</div>
 			<div class="instructions">
 				<p>Enter option names separated by semicolons.<br/>
-				Pick optional if the students doesn't have to<br/>pick an option.</p>
+				<p>Optional means that the student <br/>
+					does not need to enter text for this<br/>
+					widget to advance to the next phase.
+				</p>
 			</div>
 			Select Options: <input type="text" id="select-options" 
 			placeholder="Option Names"/><br/><br/>
@@ -180,15 +244,17 @@ limitations under the License.
 				<button type="button" onClick=toggleMenu("hidden") title="Cancel">Cancel</button>
 			</div>
 		</div>
-		<div id="carryforward" class="popupDialog">
-			<div class="title">Carry-forward Properties</div>
+		<div id="carryforward" class="popupDialog" onVisible="visible">
+			<div class="title">Carryforward Properties</div>
 			<div class="instructions">
-				<p>Select a widget from a previous phase.<br/>
-				It's value will be displayed here.</p>
+				<p>Select a source widget from previous phase to display.
 			</div>
-			<select id="carryForwardSource">
-				<option disabled="disabled" selected="selected">Select a widget.</option>
+			<select class="cfSources" multiple="multiple" size="5" onChange="showCFOrder(this)">
 			</select>
+			<p>Hold the CTRL key to select multiple widgets. You may change the order of concatenation below.
+			</p>
+			<p>Order: <input type="text" id="cfOrder" cols="30"/>
+			</p>
 			<div class="error">Select one.</div>
 			<div class="buttonBar">
 				<button onClick=saveCarryforward()>Save</button>

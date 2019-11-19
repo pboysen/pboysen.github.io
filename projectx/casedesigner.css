@@ -6,7 +6,9 @@
 }
 
 body {
-	background-color: #FFFFFF;
+	background-color: var(--main-fg-color);
+	width: 100%;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -18,39 +20,60 @@ body {
 	padding: 5px;
 	background-color: var(--main-bg-color);
 	text-align: center;
+	display: inline-block;
 }
 
-#casePanel:nth-child(1) {
+#roles {
+	margin: 5px;
+	padding: 2px;
+	float:left;
+	display: inline-block;
+}
+
+#roles span {
+	color: var(--main-fg-color);
+	background-color: var(--main-bg-color);
+}
+
+#roles select {
+	border-radius: 5px;
+	width: 100px;
+}
+
+#maintitle {
 	font-size: 28px;
 	font-family: "Brush Script MT";
-	color: white;
+	color: var(--main-fg-color);
+	display: inline-block;
 }
 
 #files {
 	float: right;
+	display: inline-block;
 	margin-right: 20px;
 }
 
 #files button {
 	border-radius: 5px;
 	padding: 2px 4px 2px 4px;
-	background-color: white;
+	background-color: var(--main-fg-color);
+;
 	color: black;
 	margin: 0px;
 }
 
 #files button:hover {
 	background-color: var(--main-comp-color);
-	color: white;
+	color: var(--main-fg-color);
 }
 
 #titles {
 	font-family: var(--main-font-family);
+	font-size: 16px;
 	display: inline-block;
 	margin: 0px 10px 0 10px;
-	font-size: 16px;
 	font-weight: bold;
-	color: white;
+	color: var(--main-fg-color);
 	padding: 0px 5px 0 20px;
 }
 
@@ -82,7 +105,7 @@ body {
 	font-family: var(--main-font-family);
 	font-size: 16px;
 	font-weight: bold;
-	color: white;
+	color: var(--main-fg-color);
 	margin: 0 20px 0 10px;
 }
 
@@ -91,18 +114,17 @@ body {
 	font-size: 12px;
 	font-family: var(--main-font-family);
 	display: inline-block;
-	margin: 0 16px 0px 5px;
+	margin: 0 5px 0px 5px;
 	white-space: nowrap;
-	padding-right: 16px;
+	padding-left: 16px;
 	
 }
 
 .phase:hover {
    	background-image: url("assets/phaseprops.png");
-   	background-position: 95% 0%;
+   	background-position: 0px 4px;
    	background-repeat: no-repeat;
 }
-
 
 .phase button {
 	border-radius: 5px;
@@ -115,12 +137,12 @@ body {
 .phase button:hover {
 	border-radius: 5px;
 	background-color: var(--main-comp-color);
-	color: white;
+	color: var(--main-fg-color);
 }
 
 .phase button[selected] {
 	background-color: var(--main-comp-color);
-	color: white;
+	color: var(--main-fg-color);
 }
 .phaseStatus {
 	vertical-align: middle;
@@ -145,7 +167,7 @@ body {
 	overflow: auto;
 }
 
-#widgetPanel {
+#widgetBar {
 	position: relative;
 	left: 300px;
 	top: 0px;
@@ -157,6 +179,21 @@ body {
 	box-shadow: 2px 2px gray;
 }
 
+.configure-title {
+	margin: 2px;
+	font-weight: bold;
+	margin: 5px;
+	padding: 2px;
+}
+
+#basic-widgets, #licensed-widgets {
+	background-color: var(--main-fg-color);
+	border: 1px solid black;
+	margin: 10px;
+	padding: 2px;
+	border-radius: 5px;
+}
+
 .widgetOption {
 	font-size: 14px;
 	font-family: var(--main-font-family);
@@ -164,6 +201,23 @@ body {
 	padding: 2px;
 	text-align: center;
 	cursor: pointer;
+}
+
+.submit {
+	position:absolute;
+	display: block;
+	left: 0px;
+	top: 500px;
+	width: 70%;
+	text-align: center;
+}
+
+.submit button {
+	border-radius: 5px;
+	padding: 2px 4px 2px 4px;
+	background-color: var(--main-comp-color);
+	color: black;
+	margin: 0px;
 }
 
 #toolWrapper {
@@ -181,13 +235,6 @@ body {
 	color: black;
 	border-bottom: 1px solid black;
 	white-space: nowrap;
-}
-
-.submit {
-	background-color: var(--main-bg-color);
-}
-#toolMenu img {
-	//padding: 4px;
 }
 
 .toolTab {
@@ -209,7 +256,7 @@ body {
 	font-family: var(--main-font-family);
 	background-color: var(--main-bg-color);
 	margin: 0 4px 0px 8px;
-	color: white;
+	color: var(--main-fg-color);
 	display: inline-block;
 	cursor: pointer;
 }
@@ -234,7 +281,8 @@ body {
 
 /* popup dialogs */
 .popupDialog {
-	font-size: 12px;
+	width: 300px;
+	font-size: 14px;
 	font-family: var(--main-font-family);
 	padding: 8px;
 	color: black;
@@ -247,6 +295,10 @@ body {
 	position: absolute;
 }
 
+.popupDialog p {
+	white-space: normal;
+}
+
 .popupDialog .title {
 	font-weight: bold;
 	font-color: black;
@@ -254,7 +306,7 @@ body {
 }
 
 .popupDialog .instructions {
-	width: 200px;
+	width: 300px;
 }
 
 .popupDialog .error {
@@ -298,6 +350,19 @@ body {
 	margin: 4px;
 }
 
+.cfSources {
+	width: 300px;
+	border-radius: 5px;
+	overflow: auto;
+}
+
+.cfSources option:disabled {
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	border-bottom: 1px solid lightgray;	
+}
+
 #toolsDialog {
 	width: 250px;
 	position: relative;
@@ -305,7 +370,22 @@ body {
 	left: 20px;
 }
 
-#fileMenu {
+#openFile {
 	left: 60%;
 	top: 5%;
+	width: 300px;
+}
+
+#saveFile {
+	left: 60%;
+	top: 5%;
+	width: 300px;
+}
+
+
+#drop_zone {
+  border: 2px dashed lightblue;
+  background-color: white;
+  width:  295px;
+  height: 120px;
 }
