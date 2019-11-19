@@ -9,7 +9,16 @@
 }
 
 .widget:hover {
-	background-image: url("assets/widget.png");	
+   	background-image: url("assets/widget.png");
+}
+
+.widget[widgettype = "radio"],.widget[widgettype = "checkbox"] {
+	position: absolute;
+}
+
+.widget[widgettype = "radio"]:hover,
+.widget[widgettype = "checkbox"]:hover {
+	background-image: none;		
 }
 
 .widget span:first-child {
@@ -75,7 +84,7 @@
 }
 
 .widget[widgettype="multiplechoice"] {
-	width: 40px;
+	width: 75px;
 	height: 100px;
 	overflow: visible;
 }
@@ -85,7 +94,7 @@
 }
 
 .widget[widgettype="checklist"] {
-	width: 40px;
+	width: 75px;
 	height: 100px;
 	overflow: visible;
 }

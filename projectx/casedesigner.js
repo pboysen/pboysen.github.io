@@ -336,25 +336,6 @@ function showMenuError(msg) {
 *****************************************************************************/
 var bullet = null;
 
-function changeListType(newType) {
-	currentWidget.type = "list";
-	currentWidget.setAttribute("widgettype",newType);
-	var subtype = (newType === "multiplechoice")?"radio":"checkbox";
-	var phase = currentCase.phases[currentPhase];
-	var list = phase.widgets[currentWidget.id];
-	list.widgettype = newType;
-	for (var i=1; i <= list.childIds.length; i++) {
-		var item = phase.widgets[list.childIds[i-1]];
-		item.type = subtype;
-		var section = document.getElementById(item.id);
-		section.setAttribute("widgettype",subtype);
-		var input = section.firstElementChild;
-		input.type = subtype;
-		input.name = (subtype === "radio")?list.id:item.id;
-		input.value = i;		
-	}
-}
-
 function getListType() {
 	var radios = document.getElementsByName('listType');
 	for (var i = 0, length = radios.length; i < length; i++)
@@ -365,7 +346,7 @@ function getListType() {
 function makeList(type) {
 	var firstLeft = parseInt(bullet.style.left,10);
 	var firstTop = parseInt(bullet.style.top,10);
-	var list = makeNewWidget(type,firstLeft-6,firstTop-12);
+	var list = makeNewWidget(type,firstLeft-6,firstTop-15);
 	var listData = currentCase.phases[currentPhase].widgets[list.id];
 	var subtype = type === "multiplechoice"?"radio":"checkbox";
 	var nextLeft = firstLeft;
@@ -406,6 +387,25 @@ function saveList() {
 	toggleMenu("hidden");
 }
 
+function changeListType(newType) {
+	currentWidget.type = "list";
+	currentWidget.setAttribute("widgettype",newType);
+	var subtype = (newType === "multiplechoice")?"radio":"checkbox";
+	var phase = currentCase.phases[currentPhase];
+	var list = phase.widgets[currentWidget.id];
+	list.widgettype = newType;
+	for (var i=1; i <= list.childIds.length; i++) {
+		var item = phase.widgets[list.childIds[i-1]];
+		item.type = subtype;
+		var section = document.getElementById(item.id);
+		section.setAttribute("widgettype",subtype);
+		var input = section.getElementsByTagName("input")[0];
+		input.type = subtype;
+		input.name = (subtype === "radio")?list.id:item.id;
+		input.value = i;		
+	}
+}
+
 
 /***************************************************************************
  * Widget functions
@@ -434,10 +434,11 @@ function initJsonPrototypes() {
 	addPrototype("media",false,false,false,true);
 	addPrototype("radio",false,false,false,false);
 	addPrototype("checkbox",false,false,false,true);
+	addPrototype("multiplechoice",true,false,true,false);
+	addPrototype("checklist",true,false,true,false);
 }
 
 function getNewJsonObject(type) {
-	console.log(type);
 	return JSON.parse(JSON.stringify(jsonPrototypes[type]))
 };
 
@@ -522,7 +523,8 @@ function getViewableWidget(type) {
 function makeNewWidget(type,left,top) {
 	var widget = getViewableWidget(type);
     var id = (currentCase.wid++).toString();
-    widget.firstChild.innerHTML = "ID:"+id;
+    if (type != "radio" && type != "checkbox")
+    	widget.firstChild.innerHTML = "ID:"+id;
     widget.id = id;
     var wrec = getNewJsonObject(type);
     wrec.id = id;
@@ -579,9 +581,10 @@ function deleteWidget(widget) {
 }
 
 function placeWidget(widget,left,top) {
+	//+view.scrollTop-view.offsetTop
 	let view = phaseViews[currentPhase];
 	widget.style.left = left+"px";
-    widget.style.top = view?(top+view.scrollTop-view.offsetTop) +'px':left+"px";	
+    widget.style.top = top+"px";	
 }
 
 function setDraggable(widget) {  
@@ -650,7 +653,6 @@ function saveTextfield() {
 	var input = currentWidget.getElementsByTagName("input")[0];
 	input.size = document.getElementById("textwidth").value;
 	input.setAttribute("optional",menu.getElementsByClassName("isoptional")[0].checked);
-	console.log(input);
 	toggleMenu("hidden");
 }
 
