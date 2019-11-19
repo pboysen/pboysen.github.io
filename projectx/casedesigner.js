@@ -436,7 +436,8 @@ function initJsonPrototypes() {
 	addPrototype("checkbox",false,false,false,true);
 }
 
-function getNewJsonObject(type) { 
+function getNewJsonObject(type) {
+	console.log(type);
 	return JSON.parse(JSON.stringify(jsonPrototypes[type]))
 };
 
