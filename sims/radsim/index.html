@@ -1,56 +1,20 @@
 <!doctype html>
 
 <meta charset="utf-8"/>
-<title>Radiation Simulation</title>
-<link rel=stylesheet href="radsim.css">
+<title>DrawSim</title>
+<link rel=stylesheet href="index.css">
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 
-<div class="radsim">
-	<div class="columns">
-		<div class="display">
-			<canvas id="maincanvas" width="400" height="300"></canvas>
-		</div>
-		<div class="display">
-			<canvas id="atgraph" width="300" height="300"></canvas>
-		</div>
+<div class="drawsim">
+	<h3>Instructions</h3>
+	<div id="instruct"></div>
+	<div class="display">
+		<canvas id="maincanvas" width="800" height="600"></canvas>
 	</div>
-	<div id="control_panel">
-		<div class="button_panel">
-			<input type="button" id="plot" value="Plot" title="Plot location"/>
-			<input type="button" id="clearLast" value="Clear Last" title="Clear last profile"/>
-			<input type="button" id="clearAll" value="Clear All" title="Clear all profiles"/>
-		</div>
-		<div class="choice_panel">
-			<table class="legend">
-				<caption>Legend</caption>
-				<tr>
-					<th>Surface</th>
-					<th>Day</td>
-					<th>Night</td>
-				</tr>
-				<tr>
-					<td>Grass</td>
-					<td><input type="radio" value="grass-day" name="choice" checked="checked"/></td>
-					<td><input type="radio" value="grass-night" name="choice"/></td>
-				</tr>
-				<tr>
-					<td>Sand</td>
-					<td><input type="radio" value="sand-day" name="choice"/></td>
-					<td><input type="radio" value="sand-night" name="choice"/></td>
-				</tr>
-				<tr>
-					<td>Plowed Field</td>
-					<td><input type="radio" value="plowed-day" name="choice"/></td>
-					<td><input type="radio" value="plowed-night" name="choice"/></td>
-				</tr>
-				<tr>
-					<td>Fresh Snow</td>
-					<td><input type="radio" value="snow-day" name="choice"/></td>
-					<td><input type="radio" value="snow-night" name="choice"/></td>
-				</tr>
-			</table>
-		</div>
+	<br/>
+	<div id="panel">
+		<a id="download" download="map.png"><input type="button" value="Download" title="Download"/></a>
 	</div>
 </div>
 
-<script src="radsim-built-min.js"></script>
+<script src="main-built.js"></script>
