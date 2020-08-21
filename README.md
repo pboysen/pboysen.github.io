@@ -1,12 +1,6 @@
-# prosemirror-widgets
-A collection of widgets for use in the ProseMirror Editor [View Demo](https://pboysen.github.io)
+# wxapps
+Engage your students in active learning about meteorology by using one or more of the WXAPPS listed below.
+Each app is either a simulation or tool designed to let students explore conditions relating to such challenging concepts as solar and terrestrial radiation, humidity variables, temperature lags and adiabatic processes. Tools are also provided to sort clouds and draw weather maps.
 
-In [ThinkSpace](http://www.thinkspace.org), 
-faculty use CKEditor to build content in multiple pages called phases which are 
-linked together forming a complex problem for students to solve. CKEditor is great but has typical HTML editor problems and takes work to add new widgets to insert. **Enter ProseMirror**.
-
-We are investigating using ProseMirror to provide an HTML editor for instructors and for collaborative editing for student teams.
-
-[Pete Boysen](mailto: pboysen@iastate.edu)
-
+[Try them here](https://pboysen.github.io/wxapps/index.html)
 
